@@ -1,3 +1,5 @@
+Sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC history, and seeing messages in one place.
+
 Get Started
 ------------
 1. Clone repository.
