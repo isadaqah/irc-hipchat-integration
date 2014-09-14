@@ -1,6 +1,6 @@
 Sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC history, and seeing messages in one place.
 
-Get Started
+Getting Started
 ------------
 1. Clone repository.
 2. Install requirements: `em-irc` and `hipchat`.
