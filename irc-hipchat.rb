@@ -5,6 +5,7 @@ require 'hipchat'
 IRC_HOST = 'irc.freenode.net'
 IRC_PORT = '6667'
 IRC_CHANNEL = '#emacs'
+HIPCHAT_ROOM = 'IRC'
 
 hipchat_client = HipChat::Client.new(ENV['HIPCHAT_AUTH_TOKEN'], :api_version => 'v2')
 
@@ -21,7 +22,7 @@ daemon = EventMachine::IRC::Client.new do
   end
 
   on(:message) do |source, target, message|
-    hipchat_client['IRC'].send('IRC', 
+    hipchat_client[HIPCHAT_ROOM].send('IRC', 
       "<strong>#{source}:</strong> #{message}",
       :notify => true, 
       :color => 'yellow', 
