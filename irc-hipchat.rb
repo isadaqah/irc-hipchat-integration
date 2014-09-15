@@ -4,10 +4,12 @@ require 'hipchat'
 
 IRC_HOST = 'irc.freenode.net'
 IRC_PORT = '6667'
-IRC_CHANNEL = '#emacs'
 HIPCHAT_ROOM = 'IRC'
 
-hipchat_client = HipChat::Client.new(ENV['HIPCHAT_AUTH_TOKEN'], :api_version => 'v2')
+HIPCHAT_AUTH_TOKEN = ENV['HIPCHAT_AUTH_TOKEN']
+IRC_CHANNEL = ENV['IRC_CHANNEL']
+
+hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN, :api_version => 'v2')
 
 daemon = EventMachine::IRC::Client.new do
   host IRC_HOST
@@ -18,7 +20,7 @@ daemon = EventMachine::IRC::Client.new do
   end
 
   on(:nick) do
-    join(IRC_CHANNEL)
+    join(ENV['IRC_CHANNEL'])
   end
 
   on(:message) do |source, target, message|
