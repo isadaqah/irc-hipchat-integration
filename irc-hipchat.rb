@@ -8,6 +8,7 @@ HIPCHAT_ROOM = 'IRC'
 
 HIPCHAT_AUTH_TOKEN = ENV['HIPCHAT_AUTH_TOKEN']
 IRC_CHANNEL = ENV['IRC_CHANNEL']
+SUPER_USERS = ENV['SUPER_IRC_USERS'].nil? ? [] : ENV['SUPER_IRC_USERS'].split(',') # comma separated list of users to highlight in hipchat (e.g. company employees)
 
 hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN, :api_version => 'v2')
 
@@ -27,7 +28,7 @@ daemon = EventMachine::IRC::Client.new do
     hipchat_client[HIPCHAT_ROOM].send('IRC', 
       "<strong>#{source}:</strong> #{message}",
       :notify => true, 
-      :color => 'yellow', 
+      :color => (SUPER_USERS.include? source) ? 'green' : 'yellow', 
       :message_format => 'html')
   end
 end
