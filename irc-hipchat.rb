@@ -20,7 +20,7 @@ bot = Cinch::Bot.new do
   end
 
   on :message do |m|
-    source = m.user.realname or m.user.nick
+    source = m.user.nick
     message = m.message
     is_super_user = (SUPER_USERS.include? source)
     company_logo = ((is_super_user && !COMPANY_LOGO.nil?) ? "<img src='#{COMPANY_LOGO}' height='16' width='16'/> " : "")
