@@ -7,3 +7,4 @@ Getting Started
 3. Set `HIPCHAT_AUTH_TOKEN` and `IRC_CHANNEL` environment variable.
 4. Change IRC channel and Hipchat room names in `irc-hipchat.rb`.
 5. Run `irc-hipchat.rb`.
+6. You can use god or supervisord to run process. Watch and configuraiton are provided for both.
