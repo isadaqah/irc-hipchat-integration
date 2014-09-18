@@ -1,5 +1,4 @@
-require 'logger'
-require 'em-irc'
+require 'cinch'
 require 'hipchat'
 
 IRC_HOST = 'irc.freenode.net'
@@ -13,19 +12,16 @@ COMPANY_LOGO = ENV['COMPANY_LOGO']
 
 hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN, :api_version => 'v2')
 
-daemon = EventMachine::IRC::Client.new do
-  host IRC_HOST
-  port IRC_PORT
-
-  on(:connect) do
-    nick('irc-hipchat')
+bot = Cinch::Bot.new do
+  configure do |c|
+    c.server = IRC_HOST
+    c.nick = 'irc-hipchat'
+    c.channels = [IRC_CHANNEL]
   end
 
-  on(:nick) do
-    join(ENV['IRC_CHANNEL'])
-  end
-
-  on(:message) do |source, target, message|
+  on :message do |m|
+    source = m.user.nick
+    message = m.message
     is_super_user = (SUPER_USERS.include? source)
     company_logo = ((is_super_user && !COMPANY_LOGO.nil?) ? "<img src='#{COMPANY_LOGO}' height='16' width='16'/> " : "")
     hipchat_msg = "#{company_logo}<strong> #{source}:</strong> #{message}"
@@ -37,4 +33,4 @@ daemon = EventMachine::IRC::Client.new do
   end
 end
 
-daemon.run!
+bot.start
