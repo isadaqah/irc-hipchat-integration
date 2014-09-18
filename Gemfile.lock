@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     activesupport (4.1.5)
       i18n (~> 0.6, >= 0.6.9)
@@ -10,6 +11,7 @@ GEM
       activesupport
       eventmachine
     eventmachine (1.0.3)
+    god (0.13.4)
     hipchat (1.2.0)
       httparty
     httparty (0.13.1)
@@ -28,4 +30,5 @@ PLATFORMS
 
 DEPENDENCIES
   em-irc (~> 0.0.2)
+  god (~> 0.13.4)
   hipchat (~> 1.2.0)
