@@ -22,7 +22,7 @@ bot = Cinch::Bot.new do
   on :message do |m|
     source = m.user.nick
     message = m.message
-    is_super_user = (SUPER_USERS.include? source)
+    is_super_user = SUPER_USERS.any? { |user| source.include? user }
     company_logo = ((is_super_user && !COMPANY_LOGO.nil?) ? "<img src='#{COMPANY_LOGO}' height='16' width='16'/> " : "")
     hipchat_msg = "#{company_logo}<strong> #{source}:</strong> #{message}"
     hipchat_client[HIPCHAT_ROOM].send('IRC', 
