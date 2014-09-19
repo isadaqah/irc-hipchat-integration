@@ -3,7 +3,7 @@ Sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC histo
 Getting Started
 ------------
 1. Clone repository.
-2. Install requirements: `em-irc` and `hipchat`.
+2. Install requirements: `bundle install`.
 3. Set `HIPCHAT_AUTH_TOKEN` and `IRC_CHANNEL` environment variable.
 4. Change IRC channel and Hipchat room names in `irc-hipchat.rb`.
 5. Run `irc-hipchat.rb`.
