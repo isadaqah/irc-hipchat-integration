@@ -1,4 +1,4 @@
-Sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC history, and seeing messages in one place.
+Sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC history, and seeing messages in one place as well as collaboration in a support IRC channel.
 
 Getting Started
 ------------
@@ -7,6 +7,7 @@ Getting Started
 3. Set environment variable:
     - `HIPCHAT_AUTH_TOKEN` (*required*): Hipchat authentication token
     - `IRC_CHANNEL` (*required*): IRC channel You want to monitor
+    - `HIPCHAT_ROOM` (*optional*): Hipchat room to echo messages, defaults to IRC
     - `SUPER_USERS` (*optional*): Comma separated list of users you want to highlight
     - `COMPANY_LOGO` (*optional*): To display next to super users in the chat.
 4. Change IRC channel and Hipchat room names in `irc-hipchat.rb`.

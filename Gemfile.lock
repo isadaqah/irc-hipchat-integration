@@ -9,6 +9,7 @@ GEM
       multi_xml (>= 0.5.2)
     json (1.8.1)
     multi_xml (0.5.5)
+    rinku (1.7.3)
 
 PLATFORMS
   ruby
@@ -16,3 +17,4 @@ PLATFORMS
 DEPENDENCIES
   cinch (~> 2.1.0)
   hipchat (~> 1.2.0)
+  rinku (~> 1.7.2)
