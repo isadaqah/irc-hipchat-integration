@@ -54,7 +54,7 @@ bot = Cinch::Bot.new do
         if has_unanswered_question && support_is_online
             queue.delete(nick)
             hipchat_client[HIPCHAT_ROOM].send('IRC',
-                "<strong>#{nick}</strong> asked a question during after hours, but no one was around to help. They just joined #datadog again, please reach out to them.",
+                "<strong>#{nick}</strong> asked a question during after hours, but no one was around to help. They just joined #{IRC_CHANNEL} again, please reach out to them.",
                 :notify => true,
                 :color => "red",
                 :message_format => 'html')
