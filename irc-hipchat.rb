@@ -11,7 +11,7 @@ HIPCHAT_ROOM = ENV['HIPCHAT_ROOM'].nil? ? 'IRC' : ENV['HIPCHAT_ROOM']
 IRC_CHANNEL = ENV['IRC_CHANNEL']
 IRC_HOST = ENV['IRC_HOST'].nil? ? 'irc.freenode.net' : ENV['IRC_HOST']
 IRC_PORT = ENV['IRC_PORT'].nil? ? '6667' : ENV['IRC_PORT']
-IRC_OWNERS = ENV['IRC_OWNERS'].nil? ? [] : ENV['IRC_OWNERS'].split(',')
+IRC_OWNERS = ENV['IRC_OWNERS'].nil? ? Set.new : ENV['IRC_OWNERS'].split(',').to_set
 
 queue = Set.new
 last_nick = nil
@@ -87,6 +87,14 @@ bot = Cinch::Bot.new do
                 end
             end
         end
+    end
+
+    on :owner do |u|
+        IRC_OWNERS.add(u.nick)
+    end
+
+    on :deowner do |u|
+        IRC_OWNERS.delete(u.nick)
     end
 end
 
