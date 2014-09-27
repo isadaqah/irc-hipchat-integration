@@ -14,6 +14,8 @@ IRC_HOST = ENV['IRC_HOST'].nil? ? 'irc.freenode.net' : ENV['IRC_HOST']
 IRC_PORT = ENV['IRC_PORT'].nil? ? '6667' : ENV['IRC_PORT']
 IRC_OWNERS = ENV['IRC_OWNERS'].nil? ? Set.new : ENV['IRC_OWNERS'].split(',').to_set
 
+WORK_DAYS = ENV['WORK_DAYS'].nil? ? [1,2,3,4,5] : ENV['WORK_DAYS'].split(',').map(&:to_i)
+
 queue = Set.new
 last_nick = nil
 last_ts = 0
@@ -63,8 +65,8 @@ bot = Cinch::Bot.new do
     end
 
     on :join do |m|
-        # If no owners are configured, then do not send re-join alerts
-        if IRC_OWNERS.any?
+        # If no owners are configured, or not a work day --> donot alert on re-joins
+        if IRC_OWNERS.any? && (WORK_DAYS.include? Time.now.wday)
             # Check if joining user has unanswered questions and some one
             # is available to reach out to them. If so then send an alert
             nick = m.user.nick

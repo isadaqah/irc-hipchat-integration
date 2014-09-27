@@ -7,12 +7,13 @@ How to install
 3. Set environment variable:
     - `BOT_NICK` (*optional*): Defaults to `irc-hipchat-bot`
     - `COMPANY_LOGO` (*optional*): To display next to irc channel owners
-    - **`HIPCHAT_AUTH_TOKEN`** (*required*): Hipchat authentication token
+    - **`HIPCHAT_AUTH_TOKEN`** (**required**): Hipchat authentication token
     - `HIPCHAT_ROOM` (*optional*): Hipchat room to echo messages, defaults to IRC
-    - **`IRC_CHANNEL`** (*required*): IRC channel you want to monitor
+    - **`IRC_CHANNEL`** (**required**): IRC channel you want to monitor
     - `IRC_HOST` (*optional*): Defaults to `irc.freenode.net`
     - `IRC_PORT` (*optional*): Defaults to `6667`
     - `IRC_OWNERS` (*optional*): Comma separated list of IRC channel owners to highlight differently
+    - `WORK_DAYS` (*optional*): Comma separated list of workdays. 0 is Sunday. Defaults to Mon-Fri. Used to prevent sending a notification if a user with an unanswered question rejoins the channel during a non-working day.
 4. Run `irc-hipchat.rb`.
 
 
