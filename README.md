@@ -5,6 +5,7 @@ How to install
 1. Clone repository.
 2. Install requirements: `bundle install`.
 3. Set environment variable:
+    - `BOT_NICK` (*optional*): Defaults to `irc-hipchat-bot`
     - `COMPANY_LOGO` (*optional*): To display next to irc channel owners
     - **`HIPCHAT_AUTH_TOKEN`** (*required*): Hipchat authentication token
     - `HIPCHAT_ROOM` (*optional*): Hipchat room to echo messages, defaults to IRC

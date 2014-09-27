@@ -3,6 +3,7 @@ require 'hipchat'
 require 'rinku'
 require 'set'
 
+BOT_NICK = ENV['BOT_NICK'].nil? ? 'irc-hipchat-bot' : ENV['BOT_NICK']
 COMPANY_LOGO = ENV['COMPANY_LOGO']
 
 HIPCHAT_AUTH_TOKEN = ENV['HIPCHAT_AUTH_TOKEN']
@@ -22,7 +23,7 @@ hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN, :api_version => 'v2')
 bot = Cinch::Bot.new do
     configure do |c|
         c.server = IRC_HOST
-        c.nick = 'irc-hipchat'
+        c.nick = BOT_NICK
         c.channels = [IRC_CHANNEL]
     end
 
