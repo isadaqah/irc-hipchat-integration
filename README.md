@@ -5,15 +5,14 @@ How to install
 1. Clone repository.
 2. Install requirements: `bundle install`.
 3. Set environment variable:
-    - `COMPANY_LOGO` (*optional*): To display next to super users in the chat.
-    - `HIPCHAT_AUTH_TOKEN` (*required*): Hipchat authentication token
+    - `COMPANY_LOGO` (*optional*): To display next to irc channel owners
+    - **`HIPCHAT_AUTH_TOKEN`** (*required*): Hipchat authentication token
     - `HIPCHAT_ROOM` (*optional*): Hipchat room to echo messages, defaults to IRC
-    - `IRC_CHANNEL` (*required*): IRC channel You want to monitor
-    - `IRC_HOST` (*optional*): Defaults to irc.freenode.net
-    - `IRC_PORT` (*optional*): Defaults to 6667
-    - `IRC_OWNERS` (*optional*): Comma separated list of users you want to highlight
-4. Change IRC channel and Hipchat room names in `irc-hipchat.rb`.
-5. Run `irc-hipchat.rb`.
+    - **`IRC_CHANNEL`** (*required*): IRC channel you want to monitor
+    - `IRC_HOST` (*optional*): Defaults to `irc.freenode.net`
+    - `IRC_PORT` (*optional*): Defaults to `6667`
+    - `IRC_OWNERS` (*optional*): Comma separated list of IRC channel owners to highlight differently
+4. Run `irc-hipchat.rb`.
 
 
 Features
