@@ -82,7 +82,7 @@ bot = Cinch::Bot.new do
                         " just joined #{IRC_CHANNEL} again, please reach "\
                         " out to them.",
                         :notify => true,
-                        :color => "red",
+                        :color => "green",
                         :message_format => 'html')
                 end
             end
