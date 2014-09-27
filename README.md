@@ -4,7 +4,7 @@ How to install
 ------------
 1. Clone repository.
 2. Install requirements: `bundle install`.
-3. Set environment variable:
+3. Set environment variables:
     - `BOT_NICK` (*optional*): Defaults to `irc-hipchat-bot`
     - `COMPANY_LOGO` (*optional*): To display next to irc channel owners
     - **`HIPCHAT_AUTH_TOKEN`** (**required**): Hipchat authentication token
@@ -14,6 +14,7 @@ How to install
     - `IRC_PORT` (*optional*): Defaults to `6667`
     - `IRC_OWNERS` (*optional*): Comma separated list of IRC channel owners to highlight differently
     - `WORK_DAYS` (*optional*): Comma separated list of workdays. 0 is Sunday. Defaults to Mon-Fri. Used to prevent sending a notification if a user with an unanswered question rejoins the channel during a non-working day.
+    - `WORK_HOURS` (*optional*): Work hours. Defaults to 9-18. Used to prevent sending a notification if a user with an unanswered question rejoins the channel during a non-working hour.
 4. Run `irc-hipchat.rb`.
 
 
