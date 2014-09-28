@@ -18,6 +18,7 @@ WORK_DAYS = ENV['WORK_DAYS'].nil? ? [1,2,3,4,5] : ENV['WORK_DAYS'].split(',').ma
 WORK_HOURS = ENV['WORK_HOURS'].nil? ? [9,18] : ENV['WORK_HOURS'].split('-').map(&:to_i)
 
 queue = Set.new
+do_not_queue = {}
 last_nick = nil
 last_ts = 0
 
@@ -49,19 +50,28 @@ bot = Cinch::Bot.new do
 
         # Update after-hours queue
         if is_owner
-            # Remove answered questions from queue
-            queue.delete_if {|nick| message.include? nick }
+            # Find user(s) being addressed by owner
+            addressed = queue.select {|nick| message.include? nick}.to_set
+
             # Remove last unanswered question if answered within 30 mins
             if Time.now.to_i - last_ts < 30 * 60
-                queue.delete(last_nick)
+                addressed.add(last_nick)
                 last_nick = nil
                 last_ts = 0
             end
+
+            # Unqueue and add users to do_not_queue to prevent trailing
+            # responses (e.g. Thank you!) to be counted as new questions
+            queue.delete_if {|nick| addresed.include? nick }
+            addressed.each {|nick| do_not_queue[nick] = Time.now.to_i + 60 * 60}
         elsif IRC_OWNERS.any?
-            # Queue question
-            last_nick = nick
-            last_ts = Time.now.to_i
-            queue.add(nick)
+            # Queue unless user been identified in the do_not_queue period
+            if (!do_not_queue.include? nick) || (do_not_queue[nick] < Time.now.to_i)
+                do_not_queue.delete(nick)
+                last_nick = nick
+                last_ts = Time.now.to_i
+                queue.add(nick)
+            end
         end
     end
 
