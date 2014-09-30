@@ -80,7 +80,7 @@ bot = Cinch::Bot.new do
         hour = Time.now.hour
         within_working_hours = (WORK_DAYS.include? Time.now.wday)\
           && (WORK_HOURS[0] <= hour) && (WORK_HOURS[1] >= hour)
-        if IRC_OWNERS.any? && within_working_hours
+        if IRC_OWNERS.any? && within_working_hours && false  # temporarily disable alerting
             # Check if joining user has unanswered questions and some one
             # is available to reach out to them. If so then send an alert
             nick = m.user.nick
