@@ -22,7 +22,7 @@ do_not_queue = {}
 last_nick = nil
 last_ts = 0
 
-hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN, :api_version => 'v2')
+hipchat_client = HipChat::Client.new(HIPCHAT_AUTH_TOKEN)
 
 bot = Cinch::Bot.new do
     configure do |c|
