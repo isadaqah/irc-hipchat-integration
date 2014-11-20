@@ -21,7 +21,7 @@ How to install
 Features
 ------------
 1. Highlights channel owners (different color and optional company logo)
-2. Alerts when a user re-joins the channel if they asked a question during after hours, but no one was around to answer.
+2. Alerts when a user re-joins the channel if they asked a question during after hours, but no one was around to answer. (Beta)
 
 
 License
