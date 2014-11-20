@@ -17,7 +17,7 @@ How to install
     - `WORK_HOURS` (*optional*): Work hours. Defaults to 9-18. Used to prevent sending a notification if a user with an unanswered question rejoins the channel during a non-working hour.
 4. Run `irc-hipchat.rb`.
 
-Note: Use Dockerfile if you'd like to run it in a docker contianer.
+Note: Use `Dockerfile` if you'd like to run it in a docker contianer.
 
 Features
 ------------
