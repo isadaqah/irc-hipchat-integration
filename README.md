@@ -1,5 +1,7 @@
 An IRC bot that sends messages in an IRC channel to a HipChat Room. Useful for keeping IRC history, seeing messages in one place as well as collaboration in a support IRC channel.
 
+![Alt IRC-Hipchat-Integration](/screenshots/irc-hipchat-integration.png?raw=true "IRC-Hipchat-Integration Screnshot")
+
 How to install
 ------------
 1. Clone repository.
