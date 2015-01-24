@@ -14,6 +14,8 @@ IRC_CHANNEL = ENV['IRC_CHANNEL']
 IRC_HOST = ENV['IRC_HOST'].nil? ? 'irc.freenode.net' : ENV['IRC_HOST']
 IRC_PORT = ENV['IRC_PORT'].nil? ? '6667' : ENV['IRC_PORT']
 IRC_OWNERS = ENV['IRC_OWNERS'].nil? ? Set.new : ENV['IRC_OWNERS'].split(',').to_set
+IRC_USERNAME = ENV['IRC_USERNAME']
+IRC_PASSWORD = ENV['IRC_PASSWORD']
 
 WORK_DAYS = ENV['WORK_DAYS'].nil? ? [1,2,3,4,5] : ENV['WORK_DAYS'].split(',').map(&:to_i)
 WORK_HOURS = ENV['WORK_HOURS'].nil? ? [9,18] : ENV['WORK_HOURS'].split('-').map(&:to_i)
@@ -30,11 +32,10 @@ bot = Cinch::Bot.new do
         c.server = IRC_HOST
         c.nick = BOT_NICK
         c.channels = [IRC_CHANNEL]
-        # replace <USERNAME>, <PASSWORD> to identify your bot to NickServ
         c.plugins.plugins = [Cinch::Plugins::Identify] 
         c.plugins.options[Cinch::Plugins::Identify] = {
-            :username => "<USERNAME>",
-            :password => "<PASSWORD>",
+            :username => "IRC_USERNAME",
+            :password => "IRC_PASSWORD",
             :type     => :nickserv,
         }
     end
