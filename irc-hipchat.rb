@@ -14,8 +14,8 @@ IRC_CHANNEL = ENV['IRC_CHANNEL']
 IRC_HOST = ENV['IRC_HOST'].nil? ? 'irc.freenode.net' : ENV['IRC_HOST']
 IRC_PORT = ENV['IRC_PORT'].nil? ? '6667' : ENV['IRC_PORT']
 IRC_OWNERS = ENV['IRC_OWNERS'].nil? ? Set.new : ENV['IRC_OWNERS'].split(',').to_set
-IRC_USERNAME = ENV['IRC_USERNAME']
-IRC_PASSWORD = ENV['IRC_PASSWORD']
+IRC_USERNAME = ENV['IRC_USERNAME'].nil ? 'cinch' : ENV['IRC_USERNAME']
+IRC_PASSWORD = ENV['IRC_PASSWORD'].nil ? '' : ENV['IRC_PASSWORD']  # Beware, the password will show up in the logs
 
 WORK_DAYS = ENV['WORK_DAYS'].nil? ? [1,2,3,4,5] : ENV['WORK_DAYS'].split(',').map(&:to_i)
 WORK_HOURS = ENV['WORK_HOURS'].nil? ? [9,18] : ENV['WORK_HOURS'].split('-').map(&:to_i)
