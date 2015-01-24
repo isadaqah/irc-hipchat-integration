@@ -1,4 +1,5 @@
 require 'cinch'
+require 'cinch/plugins/identify'
 require 'hipchat'
 require 'rinku'
 require 'set'
@@ -29,6 +30,13 @@ bot = Cinch::Bot.new do
         c.server = IRC_HOST
         c.nick = BOT_NICK
         c.channels = [IRC_CHANNEL]
+        # replace <USERNAME>, <PASSWORD> to identify your bot to NickServ
+        c.plugins.plugins = [Cinch::Plugins::Identify] 
+        c.plugins.options[Cinch::Plugins::Identify] = {
+            :username => "<USERNAME>",
+            :password => "<PASSWORD>",
+            :type     => :nickserv,
+        }
     end
 
     on :message do |m|
