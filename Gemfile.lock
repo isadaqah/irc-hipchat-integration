@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     cinch (2.1.0)
+    cinch-identify (1.6.0)
     hipchat (1.2.0)
       httparty
     httparty (0.13.1)
@@ -16,5 +17,6 @@ PLATFORMS
 
 DEPENDENCIES
   cinch (~> 2.1.0)
+  cinch-identify (~> 1.6.0)
   hipchat (~> 1.2.0)
   rinku (~> 1.7.2)
